@@ -17,7 +17,7 @@ const Header = () => {
   
       <div className='order-1 sm:order-2 min-h-[450px] sm:min-h-[450px] flex justify-center items-center relative'>
         <div>
-           <img className='w-[300px] sm:w-[500px]' src="burger.png" alt="" />
+           <img className='w-[300px] sm:w-[500px]' src= alt="" />
         </div>
       </div>
 
