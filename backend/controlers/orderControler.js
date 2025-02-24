@@ -48,7 +48,7 @@ const placeOrder = async (req, res) => {
                     product_data: {
                         name: "Delivery Charges",
                     },
-                    unit_amount: 40 * 100,  // Convert delivery charge to smallest unit
+                    unit_amount: 40 * 100,  // Convert delivery charge to smallest Unit
                 },
                 quantity: 1,
             });
