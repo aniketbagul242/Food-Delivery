@@ -25,7 +25,7 @@ const App = () => {
    {showLogin?<LoginPopup setShowLogin={setShowLogin}/>: <></>}
    
    <ToastContainer/>
-    <div className='custom-s:w-3/4 w-full m-auto'>
+    <div className='custom-s:w-3/4 w-[90%] m-auto'>
   <Navbar setShowLogin={setShowLogin} contactRef={contactRef} />
 <Routes>
   <Route path='/' element={<Home />} />
