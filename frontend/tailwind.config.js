@@ -59,7 +59,7 @@ export default {
         'custom-lg': '1050px', // Custom breakpoint for max-width 1050px
         'custom-md': '900px',  // Custom breakpoint for max-width 900px
         'custom-sm': '750px',  // Custom breakpoint for max-width 750px
-        'custom-s':"430",
+        'custom-s':"430px",
       },
 
     fontFamily:{
