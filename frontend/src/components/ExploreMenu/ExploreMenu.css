@@ -1,0 +1,12 @@
+
+lis-item img{
+    width: 7.6vw;
+    min-width: 80px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+#menu-list::-webkit-scrollbar{
+    display: none;
+}
