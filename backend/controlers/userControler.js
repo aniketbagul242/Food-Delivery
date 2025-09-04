@@ -52,7 +52,7 @@ const userRegister = async (req, res) => {
     }
 
     // hashing user password
-    const salt = await bcrypt.genSalt(10);
+    const salt = await bcrypt.genSalt(1);
     const hashPassword = await bcrypt.hash(password, salt);
 
     const newUser = new userModel({
@@ -71,3 +71,4 @@ const userRegister = async (req, res) => {
 };
 
 export { loginUser, userRegister };
+
