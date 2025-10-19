@@ -9,7 +9,7 @@ import cartRouter from "./routes/cartRoutes.js"
 import orderRouter from "./routes/orderRoutes.js"
 
 
-const app =express()
+const app = express()
 
 const PORT = process.env.PORT
 
@@ -23,15 +23,15 @@ connectDB();
 // api endpoints
 app.use("/api/food", foodRouter)
 app.use("/images", express.static('uploads'))
-app.use("/user",userRouter)
+app.use("/user", userRouter)
 app.use("/api/cart", cartRouter)
-app.use("/api/order",orderRouter)
+app.use("/api/order", orderRouter)
 
-app.get("/", (req, res)=>{
+app.get("/", (req, res) => {
     res.send("API Working")
 })
 
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
     console.log(`Server Started on http://localhost:${PORT}`)
 })
 

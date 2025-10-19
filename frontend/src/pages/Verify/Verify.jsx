@@ -1,49 +1,49 @@
 import { useContext, useEffect } from 'react';
-import {  useSearchParams } from 'react-router-dom'
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
-import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Verify = () => {
-    const [seacrchParams, setSearchParams] = useSearchParams();
-    const success = seacrchParams.get("success")
-    const orderId = seacrchParams.get("orderId")
-    
-    const {url} = useContext(StoreContext)
-    const navigate =useNavigate();
+  const [searchParams] = useSearchParams(); 
+  const success = searchParams.get("success");
+  const orderId = searchParams.get("orderId");
 
+  const { url } = useContext(StoreContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
     const verifyPayment = async () => {
       try {
-          const response = await axios.post(`${url}/api/order/verify`, { success, orderId });
-          
-          if (response.data.success) {
-              // Redirect to the myorders page if successful
-              navigate("/myorders");
-          } else {
-              // Redirect to the home page if not successful
-              navigate("/");
-          }
-      } catch (error) {
-          // Handle errors (e.g. network issues, API errors)
-          console.error("Payment verification failed:", error);
+        const response = await axios.post(`${url}/api/order/verify`, {
+          success,
+          orderId,
+        });
+
+        if (response.data.success) {
+          toast.success("Order placed successfully!");
+          navigate("/myorders");
+        } else {
+          toast.error("Payment failed. Order cancelled.");
           navigate("/");
+        }
+      } catch (error) {
+        console.error("Payment verification failed:", error);
+        toast.error("An error occurred during payment verification.");
+        navigate("/");
       }
-  };
+    };
 
-
- useEffect(()=>{
     verifyPayment();
- },[])
-    
+  }, [success, orderId]);
 
   return (
-    <div classNameNameName='min-h-[60vh] grid' >
-<div class="flex justify-center items-center min-h-screen">
-  <div class="border-t-8 border-purple-500 border-solid w-24 h-24 rounded-full animate-spin shadow-lg"></div>
-</div>
-</div>
+    <div className="min-h-[60vh] grid place-items-center">
+      <div className="flex justify-center items-center min-h-[60vh]">
+        <div className="border-t-8 border-purple-500 w-20 h-20 rounded-full animate-spin shadow-lg"></div>
+      </div>
+    </div>
+  );
+};
 
-  )
-}
-
-export default Verify
+export default Verify;

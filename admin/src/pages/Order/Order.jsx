@@ -20,15 +20,15 @@ const Order = () => {
     }
   }
 
-  const statusHandler = async (event, orderId)=>{
-    const response = await axios.post("http://localhost:4000/api/order/status",{
+  const statusHandler = async (event, orderId) => {
+    const response = await axios.post(`${url}/api/order/status`, {
       orderId,
-      status:event.target.value
+      status: event.target.value
     })
-    if(response.data.success){
+    if (response.data.success) {
       await fetchOrder()
     }
-    
+
   }
 
   useEffect(() => {
@@ -55,20 +55,20 @@ const Order = () => {
                 })}
               </p>
               <p className='font-semibold mt-8 mb-1.5 ' id='order-item-name'> {order.address.firstname + " " + order.address.lastname}</p>
-              <div className='mb-2.5' id='order-item-address'> 
-                 <p> {order.address.street + ","}   </p>
+              <div className='mb-2.5' id='order-item-address'>
+                <p> {order.address.street + ","}   </p>
                 <p>{order.address.city + ", " + order.address.state + ", " + order.address.country + ", " + order.address.zipcode}</p>
               </div>
               <p id='order-item-phone'>{order.address.phone}</p>
             </div>
-             <p> Items: {order.items.length}</p>
-             <p>₹ {order.amount}</p>
-             <p>{order.paymentMethod}</p>
-             <select className='bg-slate-200 border border-red-500 border-solid w-40 p-2.5 outline-none' onChange={(event)=>statusHandler(event, order._id)} value={order.status}>
+            <p> Items: {order.items.length}</p>
+            <p>₹ {order.amount}</p>
+            <p>{order.paymentMethod}</p>
+            <select className='bg-slate-200 border border-red-500 border-solid w-40 p-2.5 outline-none' onChange={(event) => statusHandler(event, order._id)} value={order.status}>
               <option value="Food Processing">Food Processing</option>
               <option value="Out For Delivery">Out For Delivery</option>
               <option value="Delivered">Delivered</option>
-             </select>
+            </select>
           </div>
         })}
       </div>
