@@ -29,7 +29,6 @@ const Navbar = ({ setShowLogin, contactRef }) => {
     if (ref.current) {
       window.scrollTo({ top: ref.current.offsetTop, behavior: 'smooth' });
 
-
     }
   };
 

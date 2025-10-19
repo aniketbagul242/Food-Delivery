@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { assets } from '../../assets/assets'
 import { StoreContext } from '../../context/StoreContext'
 import axios from "axios"
+import { toast } from 'react-toastify';
+
 
 const LoginPopup = ({ setShowLogin }) => {
    const [currState, setCurrState] = useState("Login")
@@ -28,7 +30,6 @@ const LoginPopup = ({ setShowLogin }) => {
       if (currState === "Login") {
          newUrl += "/user/login"
 
-
       }
       else {
          newUrl += "/user/register"
@@ -38,9 +39,14 @@ const LoginPopup = ({ setShowLogin }) => {
       const response = await axios.post(newUrl, data)
 
       if (response.data.success) {
-
          setToken(response.data.token)
          localStorage.setItem("token", response.data.token)
+
+         toast.success("Logged in successfully!", {
+            position: "top-center",
+            autoClose: 3000,
+         });
+
          setShowLogin(false);
       }
       else {

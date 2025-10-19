@@ -61,7 +61,7 @@ const [list, setList] =useState([])
               <p>{item.name}</p>
               <p>{item.category}</p>
               <p>₹{item.price}</p>
-              <p onClick={()=>deleteFood(item._id)}>X</p>
+              <p className='cursor-pointer' onClick={()=>deleteFood(item._id)}>X</p>
             </div>
           )
 
