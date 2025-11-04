@@ -73,7 +73,7 @@ const Cart = () => {
               </div>
 
             </div>
-            <button onClick={handleProceedCheckout} className='border-none text-white bg-red-600 w-56 pt-3 pb-3 pr-0 pl-0 rounded cursor-pointer hover:bg-red-500'>PROCEED TO CHRCKOUT</button>
+            <button onClick={handleProceedCheckout} className='border-none text-white bg-red-600 w-56 pt-3 pb-3 pr-0 pl-0 rounded cursor-pointer hover:bg-red-500'>PROCEED TO CHECKOUT</button>
           </div>
         </div>
       </div>
@@ -81,5 +81,6 @@ const Cart = () => {
     </>
   )
 }
+
 
 export default Cart
