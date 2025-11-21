@@ -1,4 +1,4 @@
-import { loginUser, userRegister } from "../controlers/userControler.js";
+import { loginUser, userRegister } from "../controllers/userController.js";
 import express from "express"
 
 const userRouter = express.Router()
