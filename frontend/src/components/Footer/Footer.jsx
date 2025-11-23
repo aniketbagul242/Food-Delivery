@@ -36,7 +36,7 @@ const Footer = forwardRef((props, ref) => {
         </div>
       </div>
       <hr className='w-full h-0.5 mt-5 mb-5' />
-      <p>Copyright 2024 FoodDelivery.com - All Right Reserved.</p>
+      <p>Copyright 2025 FoodDelivery.com - All Right Reserved.</p>
     </div>
   )
 })
