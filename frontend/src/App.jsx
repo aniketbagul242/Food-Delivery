@@ -10,6 +10,7 @@ import Myorder from './pages/Myorder/Myorder'
 import Verify from './pages/Verify/Verify'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SearchResults from './components/SearchResults/SearchResults'
 
 
 const App = () => {
@@ -31,6 +32,8 @@ const App = () => {
           <Route path='/order' element={<Order />} />
           <Route path='/myorders' element={<Myorder />} />
           <Route path='/verify' element={<Verify />} />
+          <Route path='/search' element={<SearchResults />} />
+
         </Routes>
 
       </div>

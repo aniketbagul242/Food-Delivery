@@ -13,6 +13,9 @@ const StoreContextProvider = (props) => {
     const [token, setToken] = useState("")
     const [food_list, setFoodlist] = useState([])
 
+    const [searchQuery, setSearchQuery] = useState(""); // search query
+
+
 
     //adding item to cart
     const addToCart = async (itemId) => {
@@ -103,7 +106,9 @@ const StoreContextProvider = (props) => {
         getTotalCartAmount,
         url,
         token,
-        setToken
+        setToken,
+        searchQuery,      
+        setSearchQuery
     }
     return (
         <StoreContext.Provider value={contextValue}>
