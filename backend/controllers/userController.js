@@ -19,7 +19,7 @@ const loginUser = async (req, res) => {
       return res.json({ success: false, message: "Invalid credentials" }); // Added return here
     }
 
-    const token = createToken(user._id);
+    const token = createToken(user._id, user.role);
     return res.json({ success: true, token }); // Added return here
 
   } catch (error) {
@@ -29,8 +29,11 @@ const loginUser = async (req, res) => {
 };
 
 // function for generating token
-const createToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET);
+const createToken = (id, role) => {
+  return jwt.sign(
+    { id, role },
+    process.env.JWT_SECRET
+  );
 };
 
 // register user
